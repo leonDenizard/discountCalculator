@@ -31,6 +31,15 @@ const calcularMigracao = () => {
     return;
   }
 
+  const limiteDate = new Date(ultimoPagamentoDate);
+  limiteDate.setMonth(limiteDate.getMonth() + 1);
+
+  if(dataMigracaoDate > limiteDate){
+    alert("Data de migração não pode ser superior a data de vencimento da fatura no próximo mês corrente")
+    return
+  }
+
+  console.log(limiteDate); // Exibe a data do limite
   const diasNoMesAtual = diasNoMes(ultimoPagamentoDate);
 
   // Cálculo para o plano antigo
